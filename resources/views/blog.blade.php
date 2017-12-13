@@ -9,32 +9,37 @@
 
 <section>
     <div class="container">
-        <div class="row">
-            
-            <div class="col-sm-10" style="margin-left:80px;" >
-                <div class="blog-post-area" >
-                    <h2 class="title text-center">Our Programs</h2>
-                    @if (count($data['progs']))
+        @if (count($data['progs']))
                     @foreach ($data['progs'] as $post)
-                    <div class="single-blog-post">
-                        <h3>{{$post->title}}</h3>
-                        
-                        <div class="post-meta">
-                            <ul>
-                                <?php 
+                    <?php 
                                     $owner = DB::table('users')->where('id', $post->idowner)->first();
                                 ?>
-                                <li><i class="fa fa-user"></i>{{$owner->name}}</li>
-                            
-                                <li><i class="fa fa-calendar"></i> {{ $post->created_at}}</li>
-                            </ul>
+                    <div id="content">
+            <div class="container">
+
+                <div class="col-sm-9" id="blog-listing">
+
+                    <div class="post">
+                        <h2><a href="post.html">{{$post->title}}</a></h2>
+                        <p class="author-category">By <a href="#">{{$owner->name}}</a>
+                        </p>
+                        <hr>
+                        <p class="date-comments">
+                            <a href="post.html"><i class="fa fa-calendar-o"></i>{{ $post->created_at}}</a>
+                        </p>
+                        <div class="image">
+                            <a href="post.html">
+                                <img src="images/blog/{{$post->image}}" style="background: 100%" class="img-responsive" alt="Example blog post alt">
+                            </a>
                         </div>
-                        <a href="#">
-                            <img src="images/blog/{{$post->image}}" alt="">
-                        </a>
-                        <p>{{str_limit($post->content, 600)}}</p>
-                        <a  class="btn btn-primary" href="{{url('blog/'.$post->url)}}">Read More</a>
+                        <p class="intro">{{str_limit($post->content, 600)}}</p>
+                        <p class="read-more"><a href="{{url('blog/'.$post->url)}} class="btn btn-primary">Read more</a>
+                        </p>
                     </div>
+                </div>
+            </div>
+            <!-- /.container -->
+        </div>
                     @endforeach
                     @endif
                     <div class="pagination-area">
@@ -42,8 +47,7 @@
                             {!! $data['progs']->render() !!}
                         </ul>
                     </div>
-                </div>
-            </div>
+    </div>
         </div>
     </div>
 </section>

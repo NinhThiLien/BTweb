@@ -20,6 +20,8 @@ class CoachController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    
+    
      public function program(Request $request) {
          
          $coachid  = addslashes($request->coachid) ;

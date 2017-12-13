@@ -40,8 +40,6 @@ class ProgramController extends Controller
         $unlike2 = $request->get('unlike2');
         $join1 = $request->get('join1');
         $join2 = $request->get('join2');
-        // $cmt = $request->get('cmt');
-        // $content = $request->get('content');
         $prog = Program::whereUrl($url)->first();
         $tags = $prog->tags;
         $prev_url = Program::prevBlogPostUrl($prog->url);
@@ -52,22 +50,17 @@ class ProgramController extends Controller
         $prog = Program::find($prog->id);
         $batchs = Program::find($prog->id)->batchs;
         $actions = DB::table('actions')->select('id')->join('batchs', 'actions.id', '=', 'batchs.actid')->select('action.*')->where('batch.prg', $prog->id);
-        // $actions = Program::find($prog->id)->actions;
         $coach = Program::find($prog->id)->coach;
         $action_date = Batch::select('date')->where('prgid', $prog->id)->distinct()->get();
         
             if (isset(Auth::user()->id)) $user = Auth::user();
-            
-            
-      
-       
+         
         $data = compact('prev_url', 'next_url', 'tags', 'title', 'description', 'page', 'actions', 'batchs', 'coach', 'haha', 'prog', 'action_date', 'user', 'count');
 
         return view('blog_post', $data);
     }
 
     public function postregis(Request $rq) {
-    // Lay thong tin POST
         $nuserid = $rq->input('nuserid');
         $nprogid = $rq->input('nprogid');
        
@@ -83,10 +76,9 @@ class ProgramController extends Controller
                         );
                    
                 }
-                // else DB::table('participate')->where('prgid', $nprogid)->where('userid', $nuserid)->delete();
+                
             }
         
-        // return redirect(url()->previous().'#cmt');
         return Redirect::to(URL::previous());
     }
     public function postreg(Request $rq) {
@@ -106,10 +98,9 @@ class ProgramController extends Controller
                         );
                     }
                 }
-                // else DB::table('participate')->where('prgid', $nprogid)->where('userid', $nuserid)->delete();
             }
         
-        // return redirect(url()->previous().'#cmt');
+        
         return Redirect::to(URL::previous());
     }
 
@@ -121,15 +112,12 @@ class ProgramController extends Controller
         if (isset(Auth::user()->id)) $user = Auth::user();
 
         if ((isset($nuserid))){
-                    // if (isset($cmt)){
                                              
                             DB::table('comments')->insert(
                                 ['idprog' => $nprogid, 'iduser' => $nuserid, 'content' => $content]
                             );
-                        // }
                     }
         
-        // return redirect(url()->previous().'#cmt');
         return Redirect::to(URL::previous());
     }
 

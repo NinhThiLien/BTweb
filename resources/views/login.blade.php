@@ -1,13 +1,4 @@
 @extends('layouts.layout')
-<head>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
-    <!-- jQuery library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-    <!-- Latest compiled JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
 @section('content')       
 
     <?php
@@ -26,32 +17,32 @@
         "</script>";
      }
 ?>    
- 
-       <section id="form"><!--form-->
+
+
+ <div id="content">
             <div class="container">
-                <div class="row">
-                    <div class="col-sm-5 col-sm-offset-1">
-                        <div class="login-form"><!--login form-->
-                            <h2>Login to your account</h2>
-                            <form method="POST" action="{{url('auth/login')}}">
-                                {!! csrf_field() !!}
-                                <input type="email" name="email" id="email" placeholder="Email Address" />
-                                <input type="password" name="password" id="password" placeholder="Password" />
-                                <span>
-                                    <input name="remember" id="remember" type="checkbox" class="checkbox"> 
-                                    Keep me signed in
-                                </span>
-                                <button type="submit" name="submit1" class="btn btn-default">Login</button>
-                            </form>
-                        </div><!--/login form-->
-                    </div>
-                    <div class="col-sm-1">
-                        <h2 class="or">OR</h2>
-                    </div>
-                    <div class="col-sm-5 ">
-                        <div class="signup-form"><!--sign up form-->
-                            <h2>New User Signup!</h2>
-                            <form method="POST" action="{{url('register')}}">
+
+                <div class="col-md-12">
+
+                    <ul class="breadcrumb">
+                        <li><a href="#">Home</a>
+                        </li>
+                        <li>New account / Sign in</li>
+                    </ul>
+
+                </div>
+
+                <div class="col-md-6">
+                    <div class="box">
+                        <h1>New account</h1>
+
+                        <p class="lead">Not our registered customer yet?</p>
+                        <p>With registration with us new world of fashion, fantastic discounts and much more opens to you! The whole process will not take you more than a minute!</p>
+                        <p class="text-muted">If you have any questions, please feel free to <a href="contact.html">contact us</a>, our customer service center is working for you 24/7.</p>
+
+                        <hr>
+
+                        <form method="POST" action="{{url('register')}}">
                                 {!! csrf_field() !!}
                                 <div class="form-group">
                                     <label for="name" class="control-label"></label>
@@ -111,13 +102,54 @@
                                     </div>
                                 </div>
                                
-                                <button type="submit" name="submit2" class="btn btn-default" id="SignBtn">Signup</button>
+                                <button type="submit" name="submit2" class="btn btn-primary" id="SignBtn">Signup</button>
 
                             </form>
-                        </div><!--/sign up form-->
                     </div>
                 </div>
+
+                <div class="col-md-6">
+                    <div class="box">
+                        <h1>Login</h1>
+
+                        <p class="lead">Already our customer?</p>
+                        <p class="text-muted">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies
+                            mi vitae est. Mauris placerat eleifend leo.</p>
+
+                        <hr>
+
+                        <form method="POST" action="{{url('auth/login')}}">
+                                {!! csrf_field() !!}
+                                <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" class="form-control" name="email" id="email" placeholder="Email Address" />
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                <input type="password" class="form-control" name="password" id="password" placeholder="Password" />
+                            </div>
+                            <div class="form-group">
+                                <span>
+                                    <input name="remember" id="remember" type="checkbox" class="checkbox"> 
+                                    Keep me signed in
+                                </span>
+                            </div>
+                                <button type="submit" name="submit1" class="btn btn-primary">Login</button>
+                            </form>
+                        
+                    </div>
+                </div>
+
+
             </div>
+            <!-- /.container -->
+        </div>
+
+
+
+ 
+       <section id="form"><!--form-->
+            
            <script type="text/javascript">
      
            

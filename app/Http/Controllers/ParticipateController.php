@@ -11,7 +11,7 @@ use App\Http\Controllers\Controller;
 use App\MyPage;
 use App\Participate;
 
-public function followUser(int $profileId)
+/*public function followUser(int $profileId)
 {
   $user = User::find($profileId);
   if(! $user) {
@@ -21,4 +21,4 @@ public function followUser(int $profileId)
 
 $user->followers()->sync(auth()->user()->id);
 return redirect()->back()->with('success', 'Successfully followed the user.');
-}
+}*/

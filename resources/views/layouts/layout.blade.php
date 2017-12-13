@@ -1,289 +1,360 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="{{$description}}">
-        <meta name="author" content="Rodrick Kazembe">
-        <title>{{$title}} - Nhóm 8 Fitness</title>
-        <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
-        <link href="{{asset('css/font-awesome.min.css')}}" rel="stylesheet">
-        <link href="{{asset('css/prettyPhoto.css')}}" rel="stylesheet">
-        <link href="{{asset('css/price-range.css')}}" rel="stylesheet">
-        <link href="{{asset('css/animate.css')}}" rel="stylesheet">
-        <link href="{{asset('css/main.css')}}" rel="stylesheet">
-        <link href="{{asset('css/responsive.css')}}" rel="stylesheet">
-        <!--[if lt IE 9]>
-        <script src="{{asset('js/html5shiv.js')}}"></script>
-        <script src="{{asset('js/respond.min.js')}}"></script>
-        <![endif]-->       
-        <link rel="shortcut icon" href="{{asset('images/ico/favicon.ico')}}">
-        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{asset('images/ico/apple-touch-icon-144-precomposed.png')}}">
-        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{asset('images/ico/apple-touch-icon-114-precomposed.png')}}">
-        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{asset('images/ico/apple-touch-icon-72-precomposed.png')}}">
-        <link rel="apple-touch-icon-precomposed" href="{{asset('images/ico/apple-touch-icon-57-precomposed.png')}}">
-    </head><!--/head-->
 
-    <body>
-        <header id="header"><!--header-->
-            <div class="header_top"><!--header_top-->
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm-6">
-                            {{-- <div class="contactinfo">
-                                <ul class="nav nav-pills">
-                                    <li><a href="#"><i class="fa fa-phone"></i> +84963977463</a></li>
-                                    <li><a href="#"><i class="fa fa-envelope"></i> fb.com/ndd96</a></li>
-                                </ul>
-                            </div> --}}
-                        </div>
-                        <div class="col-sm-6">
-                           {{--  <div class="social-icons pull-right">
-                                <ul class="nav navbar-nav">
-                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                                </ul>
-                            </div> --}}
-                        </div>
-                    </div>
-                </div>
-            </div><!--/header_top-->
+<head>
 
-            <div class="header-middle"><!--header-middle-->
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm-4">
-                            <div class="logo pull-left">
-                                <a href="{{url('')}}"><img src="{{asset('images/home/logo.png')}}" alt="" style="width:50%;" /></a>
-                            </div>
-                        </div>
-                        <div class="col-sm-8">
-                            <div class="shop-menu pull-right">
-                                <ul class="nav navbar-nav">
+    <meta charset="utf-8">
+    <meta name="robots" content="all,follow">
+    <meta name="googlebot" content="index,follow,snippet,archive">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Obaju e-commerce template">
+    <meta name="author" content="Ondrej Svestka | ondrejsvestka.cz">
+    <meta name="keywords" content="">
+
+    <title>
+        NHOM 5
+    </title>
+
+    <meta name="keywords" content="">
+
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,500,700,300,100' rel='stylesheet' type='text/css'>
+
+    <!-- styles -->
+    <link href="{{Asset('assets/css/font-awesome.css')}}" rel="stylesheet">
+    <link href="{{Asset('assets/css/bootstrap.min.css')}}" rel="stylesheet">
+    <link href="{{Asset('assets/css/animate.min.css')}}" rel="stylesheet">
+    <link href="{{Asset('assets/css/owl.carousel.css')}}" rel="stylesheet">
+    <link href="{{Asset('assets/css/owl.theme.css')}}" rel="stylesheet">
+
+    <!-- theme stylesheet -->
+    <link href="{{Asset('assets/css/style.default.css')}}" rel="stylesheet">
+
+    <!-- your stylesheet with modifications -->
+    <link href="{{Asset('assets/css/custom.css')}}" rel="stylesheet">
+
+    <script src="{{Asset('assets/js/respond.min.js')}}"></script>
+
+    <link rel="shortcut icon" href="favicon.png">
+
+
+
+</head>
+
+<body>
+
+    <!-- *** TOPBAR ***
+ _________________________________________________________ -->
+    <div id="top">
+        <div class="container">
+            <div class="col-md-6 offer" data-animate="fadeInDown">
+               
+            </div>
+            <div class="col-md-6" data-animate="fadeInDown">
+                <ul class="menu">
                                     <li><a href="{{url('/update')}}"> {{Auth::check() ? Auth::user()->name : ''}}</a></li>
-                                    {{-- <li><a href="{{url('checkout')}}"><i class="fa fa-crosshairs"></i> Checkout</a></li>
-                                    <li><a href="{{url('cart')}}"><i class="fa fa-shopping-cart"></i> Cart</a></li> --}}
-                                    <li><a href="{{Auth::check() ? url('auth/logout') : url('auth/login')}}"><i class="fa fa-lock"></i> {{Auth::check() ? 'Logout' : 'Login'}}</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div><!--/header-middle-->
-
-            <div class="header-bottom"><!--header-bottom-->
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm-9">
-                            <div class="navbar-header">
-                                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                                    <span class="sr-only">Toggle navigation</span>
-                                    <span class="icon-bar"></span>
-                                    <span class="icon-bar"></span>
-                                    <span class="icon-bar"></span>
-                                </button>
-                            </div>
-                            <div class="mainmenu pull-left">
-                                <ul class="nav navbar-nav collapse navbar-collapse">
-                                    <li><a href="{{url('')}}" {{$page == '/home' ? 'class=active' : ''}}>Home</a></li>
-
-                                   <li><a href="{{Auth::check() ? url('/mypage') : url('auth/login')}}"> {{Auth::check() ? 'My Page' : ''}}</a></li>
-                            
-                                    {{-- <li><a href="{{url('mypage')}}" {{$page == '/mypage' ? 'class=active' : ''}}>My Page</a></li> --}}
                                     
-                                    <li><a href="{{url('/toplike')}}" {{$page == 'toplike' ? 'class=active' : ''}}>Top</a></li>
-                                    <li><a href="{{url('coachlist')}}" {{$page == 'coachlist' ? 'class=active' : ''}}>Coach List</a></li>
-                                    <li><a href="{{Auth::check() ? url('/newpost') : url('auth/login')}}"> {{Auth::check() ? 'New Post' : ''}}</a></li>
-
-                                    {{-- <li><a href="{{url('contact-us')}}" {{$page == 'contact_us' ? 'class=active' : ''}}>Contact Us</a></li> --}}
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-sm-3">
-                             <form role="form" method="GET" action="{{ url('search') }}">
-                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
-
-                            <div class="search_box pull-right">
-                                <input name="search" type="text" placeholder="Search Prog by Coach"/>
-
-                            </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div><!--/header-bottom-->
-        </header><!--/header-->
-
-        @yield('content')
-
-        <footer id="footer"><!--Footer-->
-            <div class="footer-top">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm-2">
-                            <div class="companyinfo">
-                                <h2><span>Nhóm8</span>Fitness</h2>
-                                <p>Website giúp hỗ trợ quá trình tập luyện giảm cân của nhóm 8</p>
-                            </div>
-                        </div>
-                        <div class="col-sm-7">
-                            <div class="col-sm-3">
-                                <div class="video-gallery text-center">
-                                    <a href="#">
-                                        <div class="iframe-img">
-                                            <img src="{{asset('images/home/iframe5.png')}}" alt="" />
-                                        </div>
-                                        <div class="overlay-icon">
-                                            <i class="fa fa-play-circle-o"></i>
-                                        </div>
-                                    </a>
-                                    <p>Circle of Hands</p>
-                                    <h2>24 DEC 2014</h2>
-                                </div>
-                            </div>
-
-                            <div class="col-sm-3">
-                                <div class="video-gallery text-center">
-                                    <a href="#">
-                                        <div class="iframe-img">
-                                            <img src="{{asset('images/home/iframe6.png')}}" alt="" />
-                                        </div>
-                                        <div class="overlay-icon">
-                                            <i class="fa fa-play-circle-o"></i>
-                                        </div>
-                                    </a>
-                                    <p>Circle of Hands</p>
-                                    <h2>24 DEC 2014</h2>
-                                </div>
-                            </div>
-
-                            <div class="col-sm-3">
-                                <div class="video-gallery text-center">
-                                    <a href="#">
-                                        <div class="iframe-img">
-                                            <img src="{{asset('images/home/iframe5.png')}}" alt="" />
-                                        </div>
-                                        <div class="overlay-icon">
-                                            <i class="fa fa-play-circle-o"></i>
-                                        </div>
-                                    </a>
-                                    <p>Circle of Hands</p>
-                                    <h2>24 DEC 2014</h2>
-                                </div>
-                            </div>
-
-                            <div class="col-sm-3">
-                                <div class="video-gallery text-center">
-                                    <a href="#">
-                                        <div class="iframe-img">
-                                            <img src="{{asset('images/home/iframe6.png')}}" alt="" />
-                                        </div>
-                                        <div class="overlay-icon">
-                                            <i class="fa fa-play-circle-o"></i>
-                                        </div>
-                                    </a>
-                                    <p>Circle of Hands</p>
-                                    <h2>24 DEC 2014</h2>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-3">
-                            <div class="address">
-                                <img src="{{asset('images/home/map.png')}}" alt="" />
-                                <p>số 70, ngõ 205 Giải Phóng, Hà Nội</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                                    <li><a href="{{Auth::check() ? url('auth/logout') : url('auth/login')}}"><i class="fa fa-lock"></i> {{Auth::check() ? 'Logout' : 'Login'}}</a></li>
+                </ul>
             </div>
+        </div>
+        <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="Login" aria-hidden="true">
+            <div class="modal-dialog modal-sm">
 
-            <div class="footer-widget">
-                <div class="container">
-                    <div class="row">
-                        {{-- <div class="col-sm-2">
-                            <div class="single-widget">
-                                <h2>Service</h2>
-                                <ul class="nav nav-pills nav-stacked">
-                                    <li><a href="#">Online Help</a></li>
-                                    <li><a href="#">Contact Us</a></li>
-                                    <li><a href="#">Order Status</a></li>
-                                    <li><a href="#">Change Location</a></li>
-                                    <li><a href="#">FAQ’s</a></li>
-                                </ul>
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="Login">Customer login</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form action="customer-orders.html" method="post">
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="email-modal" placeholder="email">
                             </div>
-                        </div> --}}
-                        {{-- <div class="col-sm-2">
-                            <div class="single-widget">
-                                <h2>Quock Shop</h2>
-                                <ul class="nav nav-pills nav-stacked">
-                                    <li><a href="#">T-Shirt</a></li>
-                                    <li><a href="#">Mens</a></li>
-                                    <li><a href="#">Womens</a></li>
-                                    <li><a href="#">Gift Cards</a></li>
-                                    <li><a href="#">Shoes</a></li>
-                                </ul>
+                            <div class="form-group">
+                                <input type="password" class="form-control" id="password-modal" placeholder="password">
                             </div>
-                        </div>
-                        <div class="col-sm-2">
-                            <div class="single-widget">
-                                <h2>Policies</h2>
-                                <ul class="nav nav-pills nav-stacked">
-                                    <li><a href="#">Terms of Use</a></li>
-                                    <li><a href="#">Privecy Policy</a></li>
-                                    <li><a href="#">Refund Policy</a></li>
-                                    <li><a href="#">Billing System</a></li>
-                                    <li><a href="#">Ticket System</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-sm-2">
-                            <div class="single-widget">
-                                <h2>About Shopper</h2>
-                                <ul class="nav nav-pills nav-stacked">
-                                    <li><a href="#">Company Information</a></li>
-                                    <li><a href="#">Careers</a></li>
-                                    <li><a href="#">Store Location</a></li>
-                                    <li><a href="#">Affillate Program</a></li>
-                                    <li><a href="#">Copyright</a></li>
-                                </ul>
-                            </div>
-                        </div> --}} 
-                        {{-- <div class="col-sm-3 col-sm-offset-1">
-                            <div class="single-widget">
-                                <h2>About Shopper</h2>
-                                <form action="#" class="searchform">
-                                    <input type="text" placeholder="Your email address" />
-                                    <button type="submit" class="btn btn-default"><i class="fa fa-arrow-circle-o-right"></i></button>
-                                    <p>Get the most recent updates from <br />our site and be updated your self...</p>
-                                </form>
-                            </div>
-                        </div> --}}
+
+                            <p class="text-center">
+                                <button class="btn btn-primary"><i class="fa fa-sign-in"></i> Log in</button>
+                            </p>
+
+                        </form>
+
+                        <p class="text-center text-muted">Not registered yet?</p>
+                        <p class="text-center text-muted"><a href="register.html"><strong>Register now</strong></a>! It is easy and done in 1&nbsp;minute and gives you access to special discounts and much more!</p>
 
                     </div>
                 </div>
             </div>
+        </div>
 
-            <div class="footer-bottom">
-                <div class="container">
-                    <div class="row">
-                        <p class="pull-left">Copyright © {{date('Y')}} zzvvmm</p>
-                       {{--  <p class="pull-right">Laravel implementation by <span><a target="_blank" href="http://www.tutorials.kode-blog.com">Tutorials Kode Blog</a></span> |  Designed by <span><a target="_blank" href="http://www.themeum.com">Themeum</a></span></p> --}}
-                    </div>
+    </div>
+
+    <!-- *** TOP BAR END *** -->
+
+    <!-- *** NAVBAR ***
+ _________________________________________________________ -->
+
+    <div class="navbar navbar-default yamm" role="navigation" id="navbar">
+        <div class="container">
+            <div class="navbar-header">
+
+                <a class="navbar-brand home" href="index.html" data-animate-hover="bounce">
+                    <img src="img/logo-small.png" alt="Obaju logo" class="visible-xs"><span class="sr-only">Obaju - go to homepage</span>
+                </a>
+                <div class="navbar-buttons">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation">
+                        <span class="sr-only">Toggle navigation</span>
+                        <i class="fa fa-align-justify"></i>
+                    </button>
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#search">
+                        <span class="sr-only">Toggle search</span>
+                        <i class="fa fa-search"></i>
+                    </button>
+                    <a class="btn btn-default navbar-toggle" href="basket.html">
+                        <i class="fa fa-shopping-cart"></i>  <span class="hidden-xs">3 items in cart</span>
+                    </a>
                 </div>
             </div>
+            <!--/.navbar-header -->
 
-        </footer><!--/Footer-->
+            <div class="navbar-collapse collapse" id="navigation">
+
+                <ul class="nav navbar-nav navbar-left">
+                    <li class="active"><a href="{{url('')}}" {{$page == '/home' ? 'class=active' : ''}}">Home</a>
+                    </li>
+                    <li><a href="{{url('/mypage')}}">My Page</a>
+                    </li>
+                    <li><a href="{{url('/toplike')}}">Top Like</a>
+                    </li>
+                    <li><a href="{{url('/coachlist')}}">Coach List</a>
+                    </li>
+                    <li><a href="{{url('/newpost')}}">New Post</a>
+                    </li>
+                    
+
+                    
+                    
+                </ul>
+
+            </div>
+            <!--/.nav-collapse -->
+
+            <div class="navbar-buttons">
+
+                
+
+                <div class="navbar-collapse collapse right" id="search-not-mobile">
+                    <button type="button" class="btn navbar-btn btn-primary" data-toggle="collapse" data-target="#search">
+                        <span class="sr-only">Toggle search</span>
+                        <i class="fa fa-search"></i>
+                    </button>
+                </div>
+
+            </div>
+
+            <div class="collapse clearfix" id="search">
+
+                <form class="navbar-form" role="search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search">
+                        <span class="input-group-btn">
+
+            <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
+
+            </span>
+                    </div>
+                </form>
+
+            </div>
+            <!--/.nav-collapse -->
+
+        </div>
+        <!-- /.container -->
+    </div>
+    <!-- /#navbar -->
+
+    <!-- *** NAVBAR END *** -->
 
 
 
-        <script src="{{asset('js/jquery.js')}}"></script>
-        <script src="{{asset('js/bootstrap.min.js')}}"></script>
-        <script src="{{asset('js/jquery.scrollUp.min.js')}}"></script>
-        <script src="{{asset('js/price-range.js')}}"></script>
-        <script src="{{asset('js/jquery.prettyPhoto.js')}}"></script>
-        <script src="{{asset('js/main.js')}}"></script>
-    </body>
+    <div id="all">
+
+       @yield('content')
+
+
+        <!-- *** FOOTER ***
+ _________________________________________________________ -->
+        <div id="footer" data-animate="fadeInUp">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3 col-sm-6">
+                        <h4>Pages</h4>
+
+                        <ul>
+                            <li><a href="text.html">About us</a>
+                            </li>
+                            <li><a href="text.html">Terms and conditions</a>
+                            </li>
+                            <li><a href="faq.html">FAQ</a>
+                            </li>
+                            <li><a href="contact.html">Contact us</a>
+                            </li>
+                        </ul>
+
+                        <hr>
+
+                        <h4>User section</h4>
+
+                        <ul>
+                            <li><a href="#" data-toggle="modal" data-target="#login-modal">Login</a>
+                            </li>
+                            <li><a href="register.html">Regiter</a>
+                            </li>
+                        </ul>
+
+                        <hr class="hidden-md hidden-lg hidden-sm">
+
+                    </div>
+                    <!-- /.col-md-3 -->
+
+                    <div class="col-md-3 col-sm-6">
+
+                        <h4>Top categories</h4>
+
+                        <h5>Men</h5>
+
+                        <ul>
+                            <li><a href="category.html">T-shirts</a>
+                            </li>
+                            <li><a href="category.html">Shirts</a>
+                            </li>
+                            <li><a href="category.html">Accessories</a>
+                            </li>
+                        </ul>
+
+                        <h5>Ladies</h5>
+                        <ul>
+                            <li><a href="category.html">T-shirts</a>
+                            </li>
+                            <li><a href="category.html">Skirts</a>
+                            </li>
+                            <li><a href="category.html">Pants</a>
+                            </li>
+                            <li><a href="category.html">Accessories</a>
+                            </li>
+                        </ul>
+
+                        <hr class="hidden-md hidden-lg">
+
+                    </div>
+                    <!-- /.col-md-3 -->
+
+                    <div class="col-md-3 col-sm-6">
+
+                        <h4>Where to find us</h4>
+
+                        <p><strong>Đại học Bách Khoa Hà Nội</strong>
+                            <br>
+                            <br>Đại Cồ Việt
+                            <br>Bách Khoa
+                            <br>Hai Bà Trưng
+                            <br>Hà Nội
+                            <br>
+                        
+                        </p>
+
+                       
+                    </div>
+                    <!-- /.col-md-3 -->
+
+
+
+                    <div class="col-md-3 col-sm-6">
+
+                        <h4>Về trang web</h4>
+
+                        <p class="text-muted">Đây là trang web ảo, được thiết kế bởi nhóm sinh viên trường đại học Bách Khoa Hà Nội</p>
+
+                        <form>
+                            <div class="input-group">
+
+                                <input type="text" class="form-control">
+
+                                <span class="input-group-btn">
+
+                <button class="btn btn-default" type="button">Subscribe!</button>
+
+            </span>
+
+                            </div>
+                            <!-- /input-group -->
+                        </form>
+
+                        <hr>
+
+                        <h4>Stay in touch</h4>
+
+                        <p class="social">
+                            <a href="#" class="facebook external" data-animate-hover="shake"><i class="fa fa-facebook"></i></a>
+                            <a href="#" class="twitter external" data-animate-hover="shake"><i class="fa fa-twitter"></i></a>
+                            <a href="#" class="instagram external" data-animate-hover="shake"><i class="fa fa-instagram"></i></a>
+                            <a href="#" class="gplus external" data-animate-hover="shake"><i class="fa fa-google-plus"></i></a>
+                            <a href="#" class="email external" data-animate-hover="shake"><i class="fa fa-envelope"></i></a>
+                        </p>
+
+
+                    </div>
+                    <!-- /.col-md-3 -->
+
+                </div>
+                <!-- /.row -->
+
+            </div>
+            <!-- /.container -->
+        </div>
+        <!-- /#footer -->
+
+        <!-- *** FOOTER END *** -->
+
+
+
+
+        <!-- *** COPYRIGHT ***
+ _________________________________________________________ -->
+        <div id="copyright">
+            <div class="container">
+                <div class="col-md-6">
+                    <p class="pull-left">©nhom5</p>
+
+                </div>
+                <div class="col-md-6">
+                    
+                         <!-- Not removing these links is part of the license conditions of the template. Thanks for understanding :) If you want to use the template without the attribution links, you can do so after supporting further themes development at https://bootstrapious.com/donate  -->
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- *** COPYRIGHT END *** -->
+
+
+
+    </div>
+    <!-- /#all -->
+
+
+    
+
+    <!-- *** SCRIPTS TO INCLUDE ***
+ _________________________________________________________ -->
+ <script src="{{Asset('assets/js/jquery-1.11.0.min.js')}}"></script>
+ <script src="{{Asset('assets/js/bootstrap.min.js')}}"></script>
+ <script src="{{Asset('assets/js/jquery.cookie.js')}}"></script>
+ <script src="{{Asset('assets/js/waypoints.min.js')}}"></script>
+ <script src="{{Asset('assets/js/modernizr.js')}}"></script>
+ <script src="{{Asset('assets/js/bootstrap-hover-dropdown.js')}}"></script>
+  <script src="{{Asset('assets/js/owl.carousel.min.js')}}"></script>
+   <script src="{{Asset('assets/js/front.j')}}"></script>
+</body>
+
 </html>

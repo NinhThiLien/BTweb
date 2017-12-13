@@ -43,16 +43,12 @@ class PostController extends Controller
             echo '';
         }
          if ((isset($nuser)) && isset($filename)){
-                    // if (isset($cmt)){
                                              
-                            DB::table('programs')->insert(
-                                ['id' => $max, 'url' => $max, 'title' => $ntitle, 'content' => $content, 'idowner' => $nuser->id, 'coachid' => '1', 'image' => $filename]);
+            DB::table('programs')->insert(
+                ['id' => $max, 'url' => $max, 'title' => $ntitle, 'content' => $content, 'idowner' => $nuser->id, 'coachid' => '1', 'image' => $filename]);
                             
-                        // }
-                    } else  DB::table('programs')->insert(
-                                ['id' => $max, 'url' => $max, 'title' => $ntitle, 'content' => $content, 'idowner' => $nuser->id, 'coachid' => '1']);
-       
-        // return redirect(url()->previous().'#cmt');
+            } else  DB::table('programs')->insert(
+                ['id' => $max, 'url' => $max, 'title' => $ntitle, 'content' => $content, 'idowner' => $nuser->id, 'coachid' => '1']);
         return redirect('blog/'.$max);
     }
     

@@ -1,83 +1,31 @@
 @extends('layouts.layout')
-<head>
-<script src="/js/jquery.cookie.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-</head>
-<style>
-.content{
-    font-color:blue;
-    font-size: 110%;
-}
-.actname{
-    font-color:blue;
-    font-size: 140%;
-}
-.actcont{
-    font-size:100%;
-    margin-left:20px;
-}
-</style>
-</head>
-@section('content')   
-<section id="advertisement">
-    <div class="container">
-        {{-- <img src="images/shop/advertisement.jpg" alt="" /> --}}
-    </div>
-</section>
+@section('content') 
 
-<section>
-    <div class="container">
+<div class="col-sm-9" id="blog-post">
 
-        <div class="row">
-            <div class="col-sm-3">
-                <div class="left-sidebar">
-                    @include('shared.sidebar')
-                    
-                    <?php 
-                        if ($coach->id != 1) echo '
-                        <h2>Coach Information</h2>
-                    <p class="content">Coach Name: <a href="/coach/'.$coach->id.'">'.$coach->name.'</a></p>
-                    <p class="content">Email: '.$coach->email.'</p> 
-                    '; else
-                    echo "<h2>Personal Post</h2>";
-                    ?>
-                    
-                </div>
-            </div>
-            <div class="col-sm-9">
-                <div class="blog-post-area">
-                    <h2 class="title text-center">Latest From our Blog</h2>
-                    <div class="single-blog-post">
-                        {{-- <h3>{{$data['post']['title']}}</h3> --}}
-                        <h3>{{$title}}</h3>
-                        
-                        <div class="post-meta">
-                            <ul>
-                                <?php 
+
+                    <div class="box">
+
+                        <h1>{{$title}}</h1>
+                        <?php 
                                     $owner = DB::table('users')->where('id', $prog->idowner)->first();
                                 ?>
-                                <li><i class="fa fa-user"></i>{{$owner->name}}</li>
-                            
-                                {{-- <li><i class="fa fa-clock-o"></i> {{date('h:i:s A', strtotime($data['post']['created_at']))}}</li> --}}
-                                <li><i class="fa fa-clock-o"></i> {{date('h:i:s A', strtotime($prog->created_at))}}</li>
-                                {{-- <li><i class="fa fa-calendar"></i> {{date('d M, Y', strtotime($data['post']['created_at']))}}</li> --}}
-                                <li><i class="fa fa-calendar"></i> {{date('d M, Y', strtotime($prog->created_at))}}</li>
-                            </ul>
-                        </div>
-                        <a href="">
-                            {{-- <img src="{{asset('images/blog/'.$data['post']['image'])}}" alt=""> --}}
+                        <p class="author-date">By <a href="#">{{$owner->name}}</a> |  <i class="fa fa-clock-o"></i> {{date('h:i:s A', strtotime($prog->created_at))}} |  <i class="fa fa-calendar"></i>  {{date('d M, Y', strtotime($prog->created_at))}}  </p>
+                        <div id="post-content">
+
                             <?php
                              
-                             if (isset($prog->image)) echo '<img src="/images/blog/'.$prog->image.'" alt="">';
+                             if (isset($prog->image)) echo '
+                                <p>
+                                    <img src="/images/blog/'.$prog->image.'" class="img-responsive" alt="Example blog post alt">
+                                </p>';
                             ?>
-                        </a>
 
-
-                        <?php
-                                if ($prog->level==1) echo "<p style='color:green; font-size:150%;'>"."Program Level: Nhẹ"."</p>";
-                                else if ($prog->level==2) echo "<p style='color:green; font-size:150%;'>"."Program Level: Trung Bình"."</p>";
-                                else if ($prog->level==3) echo "<p style='color:green; font-size:150%;'>"."Program Level: Nặng"."</p>";
+                            <?php
+                                if ($prog->level==1) echo "<h2>Program Level: Nhẹ</h2>";
+                                else if ($prog->level==2) echo "<h2>Program Level: Trung bình</h2>";
+                                else if ($prog->level==3) echo "<h2>Program Level: Nặng</h2>";
                                 echo $prog->content;
                                 echo "<br>";
                         ?>
@@ -110,6 +58,7 @@
                             ?>
                         @endforeach
                         @endif
+                        <br><br>
                         <form class="form-horizontal" name="reg" id="reg" role="form" method="POST" action="/postregis">
                                 {{ csrf_field() }}
                                 <input type="hidden" name="nuserid" value="<?php if (isset($user->id)) echo $user->id; ?>" />
@@ -144,8 +93,7 @@
                             }
                        ?>
                          </form>
-
-                        <form class="form-horizontal" name="flike1" id="flike1" role="form" method="POST" action="/postlike1">
+                         <form class="form-horizontal" name="flike1" id="flike1" role="form" method="POST" action="/postlike1">
                                 {{ csrf_field() }}
                                 <input type="hidden" name="nuserid" value="<?php if (isset($user->id)) echo $user->id; ?>" />
                                 <input type="hidden" name="nprogid" value="{{$prog->id}}" />
@@ -173,8 +121,6 @@
 
                         
                         </form>
-                       
-                        
                         <div class="pager-area">
                             <ul class="pager pull-right">
                                 {{-- <li><a href="{{$data['previous_url']}}">Pre</a></li> --}}
@@ -183,14 +129,11 @@
                                 <li><a href="{{$next_url}}">Next</a></li>
                             </ul>
                         </div>
-                    </div>
-                </div><!--/blog-post-area-->
+                            
 
-               
+                        <div id="comments" data-animate="fadeInUp">
 
-                <div class="response-area">
-                    {{-- <h2>3 RESPONSES</h2> --}}
-                    <h2>Comments   </h2>
+                            <h2>Comments   </h2>
                     
                     <ul class="media-list">
                     <?php
@@ -210,16 +153,23 @@
                                 if (isset($user)) echo '<input type="hidden" name="nuserid" value="'.$user->id.'" />';
                                 echo'
                                     <input type="hidden" name="ncmtid" value="'.$idcmt.'" />
-                                    <li class="media">
+
+                                    <div class="row comment">
+                                <div class="col-sm-9 col-md-10">
+                                    <h5>'.$usercmt->name.'</h5>
+                                    <p class="posted"><i class="fa fa-clock-o"></i>'.$object->created_at.'</p>
+                                    <p>'.$object->content.'</p>
+
+                                   
+                                </div>
+                            </div>
+
+
+
+
 
                                     
-                                        <div class="media-body">
-                                            <ul class="sinlge-post-meta">
-                                                <li><i class="fa fa-user"></i>'.$usercmt->name.'</li>
-                                                <li><i class="fa fa-clock-o"></i>'.$object->created_at.'</li>
-                                                
-                                            </ul>
-                                            <p name="ctn" id="ctn">'.$object->content.'</p>';
+                                        <div class="media-body">';
                                             if (isset($user)){
                                                 if ((is_null($liked2))){
                                                 
@@ -236,8 +186,8 @@
                                             
                                             echo '
                                         </div>
-                                    </li>
                                     </form>
+                                    <hr>
                                     ';
                                 }
                             }
@@ -246,12 +196,15 @@
                     
                     
                         
-                    </ul>                   
-                </div><!--/Response-area-->
-                <div class="replay-box">
-                    <div class="row">
-                        <div class="col-sm-8">
-                        <?php 
+                    </ul> 
+                        </div>
+                        <!-- /#comments -->
+
+                        <div id="comment-form" data-animate="fadeInUp">
+
+                            <h4>Leave comment</h4>
+
+                            <?php 
                              $url = url('blog/'.$prog->url);
                             if (isset($user)){
                             echo '<form class="form-horizontal" role="form" method="POST" action="/postcmt">'.csrf_field().'
@@ -261,25 +214,58 @@
                                             
                                     <h2>Leave a Comment    </h2>
                                     <div class="text-area">
-                                        <div class="blank-arrow">
-                                            <label>'.$user->name.'</label>
+                                        <div class="form-group">
+                                            <label for="comment">Comment <span class="required">*</span>
+                                            </label>
+                                            <textarea class="form-control" id="comment"name="content" rows="11"></textarea>
                                         </div>
-                                        <span>*</span>
-                                        <textarea name="content" rows="11"></textarea>
                                         <button class="btn btn-primary"  type="submit" name="cmt" id="cmt" >Post Comment</button>
                                     </div>
                                 </form>';
                             }
                         ?>
+
                         </div>
-                        <div class="col-sm-6">
-                            
-                        </div>
+                        <!-- /#comment-form -->
+
                     </div>
-                </div><!--/Repaly Box-->
-            </div>  
-        </div>
-    </div>
+                    <!-- /.box -->
+                </div>
+</div>
+<div class="col-md-3">
+                    <!-- *** BLOG MENU ***
+ _________________________________________________________ -->
+                    <div class="panel panel-default sidebar-menu">
+
+                        <?php 
+                        if ($coach->id != 1) echo '
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Coach Information</h3>
+                            </div>
+
+                            <div class="panel-body">
+
+                                <ul class="nav nav-pills nav-stacked">
+                                <li class="active">
+                                    <a href="blog.html">Name: '.$coach->name.' </a>
+                                </li>
+                                <li>
+                                    <a href="blog.html">Email: '.$coach->email.' </a>
+                                </li>
+                            </ul>
+                        </div>
+                        '; else
+                            echo '<div class="panel-heading">
+                                <h3 class="panel-title">Persion post</h3>
+                            </div>';
+                        ?>
+
+                        
+
+                    </div>
+                </div>
+<section>
+    
   <script type="text/javascript">
 (function($){
 window.onbeforeunload = function(e){    

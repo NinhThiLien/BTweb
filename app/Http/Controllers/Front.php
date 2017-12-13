@@ -21,13 +21,7 @@ class Front extends Controller
 {
     var $title;
     var $description;
-    // public function __construct()
-    // {
-    //    $this->middleware('auth');
-    // }
-
-   
-   
+    
     public function contact_us() {
         return view('contact_us', array('title' => 'Welcome', 'description' => '', 'page' => 'contact_us'));
     }

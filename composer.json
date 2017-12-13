@@ -4,6 +4,10 @@
     "keywords": ["framework", "laravel"],
     "license": "MIT",
     "type": "project",
+
+    "phpmd/phpmd" : "2.*",
+    "squizlabs/php_codesniffer": "2.*",
+
     "require": {
         "php": ">=5.5.9",
         "laravel/framework": "5.1.*",

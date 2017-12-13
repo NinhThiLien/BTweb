@@ -45,11 +45,12 @@
                                     
                                     <div class="text-area" >
                                         <h4>Content</h4>
-                                        <textarea style="border:solid 1px orange;" name="content" rows="10"></textarea>
+                                        <textarea class="form-control" style="border:solid 1px orange;" name="content" rows="10"></textarea>
                                         
                                     </div>
                                     <label>Select image to upload:</label>
                                     <input type="file" name="file" id="file">
+                                    <br>
                                     <button class="btn btn-primary"  type="submit" name="cmt" id="cmt" >Post</button>
                                 </form>
                                
