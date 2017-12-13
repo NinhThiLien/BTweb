@@ -6,7 +6,6 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'AddCategoryIdImageToPrograms' => $baseDir . '/database/migrations/2015_11_09_195836_add_category_id_image_to_programs.php',
     'AddConstraintToTables' => $baseDir . '/database/migrations/2017_12_02_122434_add_constraint_to_tables.php',
     'App\\Action' => $baseDir . '/app/Action.php',
     'App\\BaseModel' => $baseDir . '/app/BaseModel.php',
@@ -42,11 +41,8 @@ return array(
     'App\\Providers\\EventServiceProvider' => $baseDir . '/app/Providers/EventServiceProvider.php',
     'App\\Providers\\RouteServiceProvider' => $baseDir . '/app/Providers/RouteServiceProvider.php',
     'App\\User' => $baseDir . '/app/User.php',
-    'BlogCategories' => $baseDir . '/database/migrations/2015_11_09_200213_blog_categories.php',
-    'BlogPostTags' => $baseDir . '/database/migrations/2015_11_09_202625_blog_post_tags.php',
     'BlogPostTagsSeeder' => $baseDir . '/database/seeds/BlogPostTagsSeeder.php',
     'BlogPostsTableSeeder' => $baseDir . '/database/seeds/BlogPostsTableSeeder.php',
-    'BlogTags' => $baseDir . '/database/migrations/2015_11_09_201826_blog_tags.php',
     'Carbon\\Carbon' => $vendorDir . '/nesbot/carbon/src/Carbon/Carbon.php',
     'Carbon\\CarbonInterval' => $vendorDir . '/nesbot/carbon/src/Carbon/CarbonInterval.php',
     'Carbon\\Exceptions\\InvalidDateException' => $vendorDir . '/nesbot/carbon/src/Carbon/Exceptions/InvalidDateException.php',
@@ -67,6 +63,8 @@ return array(
     'ClassPreloader\\Parser\\StrictTypesVisitor' => $vendorDir . '/classpreloader/classpreloader/src/Parser/StrictTypesVisitor.php',
     'CreateActionsTable' => $baseDir . '/database/migrations/2017_11_29_160121_create_actions_table.php',
     'CreateBatchsTable' => $baseDir . '/database/migrations/2017_11_29_162604_create_batchs_table.php',
+    'CreateCommentsTable' => $baseDir . '/database/migrations/2017_12_06_143520_create_comments_table.php',
+    'CreateLikesTable' => $baseDir . '/database/migrations/2017_12_06_143532_create_likes_table.php',
     'CreateParticipateTable' => $baseDir . '/database/migrations/2017_11_29_175434_create_participate_table.php',
     'CreatePasswordResetsTable' => $baseDir . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
     'CreateProgramsTable' => $baseDir . '/database/migrations/2015_10_30_173611_create_programs_table.php',

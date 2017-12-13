@@ -311,7 +311,6 @@ class ComposerStaticInit023f1562cf1afdd7375c28de132b42f3
     );
 
     public static $classMap = array (
-        'AddCategoryIdImageToPrograms' => __DIR__ . '/../..' . '/database/migrations/2015_11_09_195836_add_category_id_image_to_programs.php',
         'AddConstraintToTables' => __DIR__ . '/../..' . '/database/migrations/2017_12_02_122434_add_constraint_to_tables.php',
         'App\\Action' => __DIR__ . '/../..' . '/app/Action.php',
         'App\\BaseModel' => __DIR__ . '/../..' . '/app/BaseModel.php',
@@ -347,11 +346,8 @@ class ComposerStaticInit023f1562cf1afdd7375c28de132b42f3
         'App\\Providers\\EventServiceProvider' => __DIR__ . '/../..' . '/app/Providers/EventServiceProvider.php',
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
         'App\\User' => __DIR__ . '/../..' . '/app/User.php',
-        'BlogCategories' => __DIR__ . '/../..' . '/database/migrations/2015_11_09_200213_blog_categories.php',
-        'BlogPostTags' => __DIR__ . '/../..' . '/database/migrations/2015_11_09_202625_blog_post_tags.php',
         'BlogPostTagsSeeder' => __DIR__ . '/../..' . '/database/seeds/BlogPostTagsSeeder.php',
         'BlogPostsTableSeeder' => __DIR__ . '/../..' . '/database/seeds/BlogPostsTableSeeder.php',
-        'BlogTags' => __DIR__ . '/../..' . '/database/migrations/2015_11_09_201826_blog_tags.php',
         'Carbon\\Carbon' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Carbon.php',
         'Carbon\\CarbonInterval' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/CarbonInterval.php',
         'Carbon\\Exceptions\\InvalidDateException' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Exceptions/InvalidDateException.php',
@@ -372,6 +368,8 @@ class ComposerStaticInit023f1562cf1afdd7375c28de132b42f3
         'ClassPreloader\\Parser\\StrictTypesVisitor' => __DIR__ . '/..' . '/classpreloader/classpreloader/src/Parser/StrictTypesVisitor.php',
         'CreateActionsTable' => __DIR__ . '/../..' . '/database/migrations/2017_11_29_160121_create_actions_table.php',
         'CreateBatchsTable' => __DIR__ . '/../..' . '/database/migrations/2017_11_29_162604_create_batchs_table.php',
+        'CreateCommentsTable' => __DIR__ . '/../..' . '/database/migrations/2017_12_06_143520_create_comments_table.php',
+        'CreateLikesTable' => __DIR__ . '/../..' . '/database/migrations/2017_12_06_143532_create_likes_table.php',
         'CreateParticipateTable' => __DIR__ . '/../..' . '/database/migrations/2017_11_29_175434_create_participate_table.php',
         'CreatePasswordResetsTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
         'CreateProgramsTable' => __DIR__ . '/../..' . '/database/migrations/2015_10_30_173611_create_programs_table.php',
